@@ -1,0 +1,11 @@
+print("Insira dois números a serem multiplicados: ")
+
+res = 0
+N1 = int(input())
+N2 = int(input())
+
+for i in range (0, N2):
+  res = res + N1
+
+
+print(f"Resultado: {res}")
