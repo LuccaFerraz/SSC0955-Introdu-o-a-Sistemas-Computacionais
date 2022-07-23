@@ -1,0 +1,67 @@
+#Legenda:
+
+estado_1 = 0 #------------ Estado do bit 0
+estado_2 = 0 #------------ Estado do bit 1
+buzina = 0 #-------------- Buzina
+luz_vermelha = 0 #-------- Luz Vermelha
+IN = 0 #------------------ Entrada da máquina de estados
+sensor = 0 #-------------- Sensor da Porta
+
+while 1:
+  IN = int(input("Insira a entrada: "))
+  sensor = int(input("Insira o sensor: "))
+
+#Lógica de transição
+
+  if estado_1 == 0 and estado_2 == 0:
+    if IN == 1:
+      estado_1 = 1
+      estado_2 = 0
+
+  elif estado_1 == 1 and estado_2 == 0:
+    if sensor == 1:
+      estado_1 = 0
+      estado_2 = 1
+
+  elif estado_1 == 0 and estado_2 == 1:
+    if IN == 1:
+      estado_2 = 0
+      estado_1 = 0
+
+
+
+#Lógica de ação
+
+
+  if estado_2 == 0 and estado_1 == 0:
+    luz_vermelha = 0
+    buzina = 0
+    
+
+  if estado_2 == 0 and estado_1 == 1:
+    luz_vermelha = 1
+    buzina = 0
+    
+
+  if estado_2 == 1 and estado_1 == 0:
+    luz_vermelha = 1
+    buzina = 1
+    
+
+  if estado_2 == 1 and estado_1 == 1:
+    luz_vermelha = 0
+    buzina = 0
+    
+  print(f'{buzina}')
+  print(f'{luz_vermelha}')
+
+  print("Se reset = [0], o estado não é reiniciado, se reset = [1], retorna-se ao estado inicial.")
+  reset = int(input("Insira o reset: "))
+
+  if reset == 1:
+    estado_1 = 0 
+    estado_2 = 0 
+    buzina = 0 
+    luz_vermelha = 0 
+    IN = 0 
+    sensor = 0
