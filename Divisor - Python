@@ -1,0 +1,30 @@
+print("Insira o dividendo: ")
+dividendo = int(input())
+
+print("Insira o divisor: ")
+divisor = int(input())
+
+res = 0
+
+if (dividendo > 0 and divisor > 0):
+  while dividendo >= divisor:
+          dividendo = dividendo - divisor
+          res += 1
+
+if (dividendo < 0 and divisor < 0):
+  while dividendo <= divisor:
+    dividendo = dividendo - divisor
+    res += 1
+
+
+if (dividendo > 0 and divisor < 0):
+  while dividendo >= -divisor:
+          dividendo = dividendo + divisor
+          res -= 1
+
+if (dividendo < 0 and divisor > 0):
+  while dividendo <= -divisor:
+          dividendo = dividendo + divisor
+          res -= 1
+
+print(f"O resultado da divisão é: {res} e o resto é {dividendo}")
